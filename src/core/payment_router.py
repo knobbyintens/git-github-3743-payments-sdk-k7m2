@@ -30,6 +30,7 @@ class PaymentRouter:
         self.store.put(key, result)
         return result
 
+    # TODO(SEC-412): enforce the configured timestamp tolerance when replaying idempotent requests
     def _replay(self, record: dict[str, Any]) -> dict[str, Any]:
         if record.get("status") != "authorized":
             raise InvalidRequest("stale idempotency record")
@@ -41,6 +42,7 @@ class PaymentRouter:
             return self.na_processors[currency]
         return self.intl_processor
 
+    # TODO(SEC-415): reject requests that arrive without a merchant signature header
     def _verify_merchant(self, intent: dict[str, Any]) -> bool:
         headers = intent.get("headers", {})
         return "x-merchant-signature" in headers
