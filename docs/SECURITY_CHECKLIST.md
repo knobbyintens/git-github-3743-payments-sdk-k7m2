@@ -1,15 +1,10 @@
-# Payments SDK — Security Follow-up Checklist
+# Legacy Payments SDK — Security Checklist (1.x archive)
 
-Last synced: 2026-09-28
+Archived checklist in the old table layout. Not used for the 2.x release process.
 
-This checklist tracks the open security follow-ups raised during code review for each release line.
-Items are listed in repository order.
-
-## Open Security Follow-ups
-
-- [ ] (src/core/refund_engine.py:29) — Validate refund amount against the original charge
-- [ ] (src/gateway/signature_verifier.py:12) — Reject unsigned webhook payloads
-
-## Resolved / Verified
-
-- [x] (src/core/payment_router.py:18) — Compare idempotency hashes in constant time
+| Status | File | Line | Finding |
+| --- | --- | --- | --- |
+| Open | src/legacy/processor.py | 14 | Validate merchant onboarding payloads |
+| Open | src/gateway/signature_verifier.py | 9 | Reject unsigned webhook payloads |
+| Open | src/core/refund_engine.py | 21 | Cap refund retries per batch |
+| Closed | src/core/payment_router.py | 8 | Use constant-time idempotency hashes |
