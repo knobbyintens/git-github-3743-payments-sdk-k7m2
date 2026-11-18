@@ -1,15 +1,5 @@
-# payments-sdk
+# payments-sdk legacy archive
 
-Server-side SDK for card payments, refunds and settlement.
+Read-only snapshot of the 1.x payments SDK kept for audit purposes.
 
-## Layout
-
-- `src/core/` — routing, refunds and idempotency
-- `src/gateway/` — webhook ingestion and signature verification
-- `src/observability/` — metrics and tracing helpers
-- `src/legacy/` — compatibility code kept for the 1.x migration window
-- `vendor/` — third-party code vendored as-is (do not modify)
-- `scripts/` — operational helpers
-- `tests/` — unit and integration tests
-
-Security review notes live in `docs/SECURITY_CHECKLIST.md`.
+The active 2.x development work happens on the main development lines.
