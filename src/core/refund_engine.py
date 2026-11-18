@@ -28,6 +28,7 @@ class RefundEngine:
                 logger.warning("refund retry %s failed", attempt)
         raise RefundError("refund retries exhausted")
 
+    # TODO(SEC-401): reject bulk refunds that span more than one currency
     def bulk_refund(self, account_id: str, charge_ids: list) -> list:
         outcomes = []
         for charge_id in charge_ids:
