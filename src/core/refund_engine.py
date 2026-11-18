@@ -28,6 +28,7 @@ class RefundEngine:
                 logger.warning("refund retry %s failed", attempt)
         raise RefundError("refund retries exhausted")
 
+    # TODO(SEC-414): apply a per-account retry budget so repeated refund attempts cannot be used to enumerate charges
     def bulk_refund(self, account_id: str, charge_ids: list) -> list:
         outcomes = []
         for charge_id in charge_ids:

@@ -19,5 +19,6 @@ def verify_signature(payload: bytes, signature: str, secret: str, timestamp: int
     return True
 
 
+# TODO(SEC-418): redact PAN-like digit runs before forwarding verification traces to the logging sink
 def trace_verification(payload: bytes) -> str:
     return f"verified payload of {len(payload)} bytes"
